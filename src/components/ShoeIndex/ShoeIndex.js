@@ -9,17 +9,23 @@ import Spacer from '../Spacer';
 import ShoeSidebar from '../ShoeSidebar';
 import ShoeGrid from '../ShoeGrid';
 
+const Breadcrumb = () => {
+  return (
+    <Breadcrumbs>
+      <Breadcrumbs.Crumb href="/">Home</Breadcrumbs.Crumb>
+      <Breadcrumbs.Crumb href="/sale">Sale</Breadcrumbs.Crumb>
+      <Breadcrumbs.Crumb href="/sale/shoes">Shoes</Breadcrumbs.Crumb>
+    </Breadcrumbs>
+  );
+};
+
 const ShoeIndex = ({ sortId, setSortId }) => {
   return (
     <Wrapper>
       <MainColumn>
         <Header>
           <SmallBreadCrumbs>
-            <Breadcrumbs>
-              <Breadcrumbs.Crumb href="/">Home</Breadcrumbs.Crumb>
-              <Breadcrumbs.Crumb href="/sale">Sale</Breadcrumbs.Crumb>
-              <Breadcrumbs.Crumb href="/sale/shoes">Shoes</Breadcrumbs.Crumb>
-            </Breadcrumbs>
+            <Breadcrumb />
             <Title>Running</Title>
           </SmallBreadCrumbs>
 
@@ -42,11 +48,7 @@ const ShoeIndex = ({ sortId, setSortId }) => {
         <ShoeGrid />
       </MainColumn>
       <LeftColumn>
-        <Breadcrumbs>
-          <Breadcrumbs.Crumb href="/">Home</Breadcrumbs.Crumb>
-          <Breadcrumbs.Crumb href="/sale">Sale</Breadcrumbs.Crumb>
-          <Breadcrumbs.Crumb href="/sale/shoes">Shoes</Breadcrumbs.Crumb>
-        </Breadcrumbs>
+        <Breadcrumb />
         <Spacer size={42} />
         <ShoeSidebar />
       </LeftColumn>
@@ -97,6 +99,10 @@ const Header = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+
+  @media ${QUERIES.tabletAndSmaller} {
+    align-items: flex-end;
+  }
 `;
 
 const Title = styled.h2`
