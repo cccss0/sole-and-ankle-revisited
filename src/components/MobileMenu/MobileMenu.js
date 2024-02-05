@@ -15,10 +15,13 @@ const MobileMenu = ({ isOpen, onDismiss }) => {
 
   return (
     <Overlay isOpen={isOpen} onDismiss={onDismiss}>
-      <Content>
-        <DialogIcon id="close" onClick={onDismiss}>
-          Dismiss menu
-        </DialogIcon>
+      <Content aria-label="Menu">
+        <CloseButton>
+          <DialogIcon id="close" onClick={onDismiss}>
+            <VisuallyHidden>Dismiss Menu</VisuallyHidden>
+          </DialogIcon>
+        </CloseButton>
+
         <NavMenu>
           <a href="/sale">Sale</a>
           <a href="/new">New&nbsp;Releases</a>
@@ -92,7 +95,11 @@ const Footer = styled.footer`
   }
 `;
 
-const DialogIcon = styled(Icon)`
-  display: flex;
-  justify-content: flex-end;
+const DialogIcon = styled(Icon)``;
+
+const CloseButton = styled(UnstyledButton)`
+  position: absolute;
+  top: 10px;
+  right: 0px;
+  padding: 16px;
 `;
